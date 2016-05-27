@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zeeslag</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <script src="Controller.js"></script>
+    <script src="HomeController.js"></script>
+    <script src="HomeView.js"></script>
+    <script src="BuildController.js"></script>
+    <script src="BuildView.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <style>
+
+        body {
+            background-color: #2A3132;
+        }
+
+
+        .gameborder{
+            /*border-radius: 10px;*/
+            padding: 10px;
+            margin: 5px;
+            background-color: #F0810F;
+            font-size: 30px;
+            color: white;
+        }
+
+        .textlabel{
+            font-size: 18px;
+            margin-left: 30px;
+        }
+
+        .rightbtn{
+            float: right;
+            margin: 5px;
+            font-size: 18px;
+            border-radius: 0;
+            border: none;
+        }
+
+        .fullwidthbtn{
+            width: 100%;
+            margin: 5px;
+            font-size: 18px;
+            background-color: #F0810F;
+            border-radius: 0;
+            border: none;
+        }
+
+        .listwithstuff{
+            margin-top: 20px;
+        }
+
+        .title{
+            margin-top: 60px;
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+        }
+
+        .loadimage{
+            display: block;
+            margin-left: auto;
+            margin-right: auto
+
+        }
+
+    </style>
+
+</head>
+<body onload="loadHomeUI()">
+
+<p class="title">MMORPG Zeeslag</p>
+
+<div id="Home" class="col-md-12">
+    <div id="HomeButtonsCreate" class="col-md-3 ">
+
+    </div>
+    <div id="mainUI" class="col-md-6 listwithstuff">
+
+    </div>
+</div>
+
+
+<div id="buildUI" class="col-md-8 col-md-offset-2">
+</div>
+
+<div id="playUI">
+</div>
+
+
+
+
+
+</body>
+</html>

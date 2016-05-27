@@ -1,0 +1,7 @@
+
+
+function loadBuildUI(id){
+    viewCanvas();
+
+
+}
