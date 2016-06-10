@@ -12,7 +12,7 @@ function viewSetupGame(id,status,enemyName){
     $('<div class="gameborder"><span class="textlabel" style="margin-left: 5px">ID: </span><span id="id">' + id + '</span>' +
         '<span class="textlabel">STATUS: </span><span id="status">' + status +'</span>' +
         '<span id="enemy"><span class="textlabel">TEGENSTANDER: </span><span>' + enemyName + '</span></span> ' +
-        '<button id="setupgame" class="btn btn-primary rightbtn" onclick="gotoBuildUI(id)">Setup</button>' +
+        '<button id="setupgame" class="btn btn-primary rightbtn" onclick="homecontroller.gotoBuildUI(id)">Setup</button>' +
         '</div>')
         .appendTo('#mainUI');
 }
@@ -43,14 +43,14 @@ function removeLoadImage(){
 
 function viewHomeButtons(){
     $('<div id="RefreshBtn" class="listwithstuff">'+
-        '<button type="button" class="fullwidthbtn btn btn-success" onclick="loadGames()">'+
+        '<button type="button" class="fullwidthbtn btn btn-success" onclick="homecontroller.viewGames()">'+
         '<span class="glyphicon glyphicon-refresh"></span> Herlaad de spellen'+
         '</button>'+
         '</div>' +
         '<div id="HomeButtonsDelete" class="listwithstuff">'+
-        '<button class="fullwidthbtn btn btn-primary" onclick="newPlayerGame()">Nieuw spel tegen speler</button>'+
-        '<button class="fullwidthbtn btn btn-primary" onclick="newAIGame()">Nieuw spel tegen AI</button>'+
-        '<button class="fullwidthbtn btn btn-danger" onclick="removeAllGames()">Alle spellen verwijderen</button>'+
+        '<button class="fullwidthbtn btn btn-primary" onclick="homecontroller.newPlayerGame()"><span class="glyphicon glyphicon-plus"></span> Nieuw spel tegen speler</button>'+
+        '<button class="fullwidthbtn btn btn-primary" onclick="homecontroller.newAIGame()"><span class="glyphicon glyphicon-plus"></span> Nieuw spel tegen AI</button>'+
+        '<button class="fullwidthbtn btn btn-danger listwithstuff" onclick="homecontroller.removeAllGames()"><span class="glyphicon glyphicon-ban-circle"></span> Alle spellen verwijderen</button>'+
         '</div>')
         .appendTo('#HomeButtonsCreate');
 }

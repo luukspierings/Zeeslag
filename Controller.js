@@ -27,3 +27,8 @@ function deleteAllGames(){
     });
 
 }
+
+function getShips(){
+    return $.get("https://zeeslagavans.herokuapp.com/ships?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ImxjcC5zcGllcmluZ3NAc3R1ZGVudC5hdmFucy5ubCI.N44IKbE8aRHyqWz0zMfSswadOUNYs0lr9KShnLpw9KQ", function(data, status){
+    });
+}
