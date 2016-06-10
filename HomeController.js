@@ -87,6 +87,7 @@ function HomeController(){
     };
 
     this.gotoBuildUI = function(id){
+        console.log(id);
         removeGameListView();
         removeHomeButtonsView();
 

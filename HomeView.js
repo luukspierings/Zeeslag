@@ -9,19 +9,23 @@ function viewQueueGame(id,status){
 }
 
 function viewSetupGame(id,status,enemyName){
+
+
     $('<div class="gameborder"><span class="textlabel" style="margin-left: 5px">ID: </span><span id="id">' + id + '</span>' +
         '<span class="textlabel">STATUS: </span><span id="status">' + status +'</span>' +
         '<span id="enemy"><span class="textlabel">TEGENSTANDER: </span><span>' + enemyName + '</span></span> ' +
-        '<button id="setupgame" class="btn btn-primary rightbtn" onclick="homecontroller.gotoBuildUI(id)">Setup</button>' +
+        '<button id="setupgame" class="btn btn-primary rightbtn" onclick="' + "homecontroller.gotoBuildUI(" + id + ")" + '">Bouwen</button>' +
         '</div>')
         .appendTo('#mainUI');
+
+
 }
 
 function viewStartedGame(id,status,enemyName) {
     $('<div class="gameborder"><span class="textlabel" style="margin-left: 5px">ID: </span><span id="id">' + id + '</span>' +
         '<span class="textlabel">STATUS: </span><span id="status">' + status +'</span>' +
         '<span id="enemy"><span class="textlabel">TEGENSTANDER: </span><span>' + enemyName + '</span></span> ' +
-        '<button id="playgame" style="float: right " class="btn btn-primary textlabel">Speel</button>' +
+        '<button id="playgame" style="float: right " class="btn btn-primary rightbtn">Speel</button>' +
         '</div>')
         .appendTo('#mainUI');
 

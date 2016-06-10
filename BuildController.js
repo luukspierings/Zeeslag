@@ -103,11 +103,7 @@ function BuildController(){
             }
         }
 
-        this.buildDone = function(){
 
-
-            var data = board.ships;
-        }
 
 
     };
@@ -129,8 +125,15 @@ function BuildController(){
 
         homecontroller.setup();
 
+
     };
 
+    this.buildDone = function(){
+
+        var data = {"ships": this.board.ships};
+        postBoard(data, this.gameID, this.gotoHomeUI);
+
+    }
 
 }
 
@@ -165,7 +168,14 @@ function Square(x,y){
 }
 
 function Ship(id, length, isVertical, name, cellX){
-    var self = this;
+
+
+    this.numberToAlphabet = function (number) {
+        var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+        return alphabet[number]
+
+    };
+
 
     this._id = id;
     this.length = length;
@@ -175,13 +185,9 @@ function Ship(id, length, isVertical, name, cellX){
     this.cellY = 0;
     this.cellDragged = 0;
     this.beingDragged = false;
-    //this.startCell = {x: self.numberToAlphabet(cellX), y: cellY};
+    this.startCell = {x: this.numberToAlphabet(this.cellX), y: this.cellY+1};
 
-    this.numberToAlphabet = function (number) {
-        var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-        return alphabet[number+1]
-
-    }
+    console.log(this.startCell);
 
 }
 

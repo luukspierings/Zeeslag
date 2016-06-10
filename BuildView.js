@@ -116,7 +116,7 @@ function drawDragship(dragShip, board){
 
 function viewBuildButtons(){
     $('<div id="SubmitBtnBuild" >'+
-        '<button type="button" class="fullwidthbtn btn btn-success" onclick="">'+
+        '<button type="button" class="fullwidthbtn btn btn-success" onclick="buildcontroller.buildDone()">'+
         '<span class="glyphicon glyphicon-ok"></span> Klaar!'+
         '</button>'+
         '</div>' +
