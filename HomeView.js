@@ -63,3 +63,7 @@ function removeHomeButtonsView(){
     $('#RefreshBtn').remove();
     $('#HomeButtonsDelete').remove();
 }
+
+function showOverlay() {
+    $('#overlay').addClass("overlay-content");
+}

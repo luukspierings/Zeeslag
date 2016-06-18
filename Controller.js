@@ -33,6 +33,12 @@ function getShips(){
     });
 }
 
+function getMatch(matchId, callback) {
+    if (!callback) return false;
+    $.get("https://zeeslagavans.herokuapp.com/games/" + matchId + "/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ImxjcC5zcGllcmluZ3NAc3R1ZGVudC5hdmFucy5ubCI.N44IKbE8aRHyqWz0zMfSswadOUNYs0lr9KShnLpw9KQ", function(data, status){
+    });;
+}
+
 function postBoard(data, id, callback){
     $.ajax({
         type: "POST",

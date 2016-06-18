@@ -3,7 +3,10 @@ function viewMatchCanvas(){
 
     $('body').on('contextmenu', '#MatchCanvas', function(e){ return false; });
     $(window).mousedown(function(e){
-
+        if(e.toElement.id == 'MatchCanvas'){
+            matchcontroller.takeAShot(e.offsetX, e.offsetY);
+            $(window).unbind('mousedown');
+        }
     });
 
 }

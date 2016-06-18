@@ -102,6 +102,9 @@ function HomeController(){
         matchcontroller.loadMatchUI(id);
     }
 
+    this.showOverlay = function(){
+        showOverlay();
+    }
 
 }
 
