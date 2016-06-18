@@ -47,3 +47,14 @@ function postBoard(data, id, callback){
     });
 
 }
+
+function takeShot(matchId, shot, callback) {
+    if (!callback) return false;
+
+    $.ajax({
+        type: "POST",
+        url: "https://zeeslagavans.herokuapp.com/games/" + matchId + "/shots?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ImxjcC5zcGllcmluZ3NAc3R1ZGVudC5hdmFucy5ubCI.N44IKbE8aRHyqWz0zMfSswadOUNYs0lr9KShnLpw9KQ",
+        data: shot,
+        success: callback
+    });
+}

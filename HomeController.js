@@ -94,6 +94,14 @@ function HomeController(){
         buildcontroller.loadBuildUI(id);
     }
 
+    this.gotoMatchUI = function(id){
+        console.log(id);
+        removeGameListView();
+        removeHomeButtonsView();
+
+        matchcontroller.loadMatchUI(id);
+    }
+
 
 }
 
