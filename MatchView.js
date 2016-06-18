@@ -49,7 +49,7 @@ function drawMatchBoard(board) {
 
     context.fillStyle = "#F0810F";
     context.strokeStyle = "#F0810F";
-    
+
 }
 
 function viewMatchButtons(){

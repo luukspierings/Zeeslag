@@ -6,7 +6,7 @@ function MatchController(){
 
     this.loadMatchUI = function(id){
         this.gameID = id;
-        this.board = new Board();
+        this.board = new MatchBoard();
 
         viewMatchCanvas();
         viewMatchButtons();
@@ -26,7 +26,7 @@ function MatchController(){
     };
 }
 
-function Board(){
+function MatchBoard(){
     this.boardW = 640;
     this.boardH = 640;
     this.rectPad = 5;
