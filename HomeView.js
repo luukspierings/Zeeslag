@@ -29,7 +29,7 @@ function viewStartedGame(id,status,enemyName) {
 
 }
 
-function  viewWaitingGame(id,enemyName) {
+function  viewWaitingGame(id, status, enemyName) {
     $('<div class="gameborder"><span class="textlabel" style="margin-left: 5px">ID: </span><span id="id">' + id + '</span>' +
         '<span class="textlabel">STATUS: </span><span id="status">' + status +'</span>' +
         '<span id="enemy"><span class="textlabel">TEGENSTANDER: </span><span>' + enemyName + '</span></span> ' +

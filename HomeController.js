@@ -17,7 +17,7 @@ function Game(id, status, enemyName){
                 if (data.yourTurn == true) {
                     viewStartedGame(id, status, enemyName);
                 } else {
-                    viewWaitingGame(id, enemyName);
+                    viewWaitingGame(id, status, enemyName);
                 }
             }
         });
