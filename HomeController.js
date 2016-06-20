@@ -4,20 +4,24 @@ function Game(id, status, enemyName){
     this.status = status;
     this.enemyName = enemyName;
 
-    this.viewGame = function(){
+    this.viewGame = function() {
 
-        if (status == "queue") {
-            viewQueueGame(id, status);
-        }
-        else if (status == "setup") {
-            viewSetupGame(id, status, enemyName);
-        }
-        else if (status == "started") {
-            viewStartedGame(id, status, enemyName);
-        }
-
+        getMatch(this.id, function (data) {
+            if (status == "queue") {
+                viewQueueGame(id, status);
+            }
+            else if (status == "setup") {
+                viewSetupGame(id, status, enemyName);
+            }
+            else if (status == "started") {
+                if (data.yourTurn == true) {
+                    viewStartedGame(id, status, enemyName);
+                } else {
+                    viewWaitingGame(id, enemyName);
+                }
+            }
+        });
     }
-
 }
 
 

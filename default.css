@@ -1,0 +1,86 @@
+body {
+    background-color: #2A3132;
+}
+
+
+.gameborder{
+    /*border-radius: 10px;*/
+    padding: 10px;
+    margin: 5px;
+    background-color: #F0810F;
+    font-size: 30px;
+    color: white;
+}
+
+.textlabel{
+    font-size: 18px;
+    margin-left: 30px;
+}
+
+.rightbtn{
+    float: right;
+    margin: 5px;
+    font-size: 18px;
+    border-radius: 0;
+    border: none;
+}
+
+.fullwidthbtn{
+    width: 100%;
+    margin: 5px;
+    font-size: 18px;
+    background-color: #F0810F;
+    border-radius: 0;
+    border: none;
+}
+
+.listwithstuff{
+    margin-top: 20px;
+}
+
+.title{
+    margin-top: 60px;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.loadimage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* Position the content inside the overlay */
+#popup_box {
+    display: none;
+    position:fixed;
+    _position:absolute; /* hack for internet explorer 6 */
+    height:100%;
+    width:100%;
+    background:#FFFFFF;
+    left: 0;
+    top: 0;
+    z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+
+    padding:15px;
+    font-size:15px;
+
+}
+
+#message{
+    font-size: 144px;
+    font-family: "Comic Sans MS";
+}
+
+#popupBoxClose {
+    font-size:20px;
+    line-height:15px;
+    right:50%;
+    top:50%;
+    position:absolute;
+    color:#6fa5e2;
+    font-weight:500;
+}

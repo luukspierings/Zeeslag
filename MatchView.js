@@ -39,12 +39,21 @@ function drawMatchBoard(board) {
 
     for (var x = 0; x < amountOfRect; x++) {
         for (var y = 0; y < amountOfRect; y++) {
+            context.fillStyle = "rgb(6,56,82)";
+            context.strokeStyle = "rgb(6,56,82)";
+
+            if(board.squares[x][y].shot == "hit"){
+                context.fillStyle = "rgb(255,0,0)";
+                context.strokeStyle = "rgb(255,0,0)";
+            }else if(board.squares[x][y].shot == "mis"){
+                context.fillStyle = "rgb(0,0,255)";
+                context.strokeStyle = "rgb(0,0,255)";
+            }
+
             rectX = rectPad + (rectPad + rectWidth) * x;
             rectY = rectPad + (rectPad + rectHeight) * y;
 
-            context.strokeStyle = "rgb(100,100,100)";
             context.strokeRect(rectX + (cornerRadius2 / 2), rectY + (cornerRadius2 / 2), rectWidth - cornerRadius2, rectHeight - cornerRadius2);
-            context.strokeStyle = "rgb(6,56,82)";
             context.strokeRect(rectX + (cornerRadius / 2), rectY + (cornerRadius / 2), rectWidth - cornerRadius, rectHeight - cornerRadius);
             context.fillRect(rectX + (cornerRadius / 2), rectY + (cornerRadius / 2), rectWidth - cornerRadius, rectHeight - cornerRadius);
         }
@@ -66,4 +75,13 @@ function viewMatchButtons(){
 
 function removeMatchButtonsView(){
     $('#BackBtnBuild').remove();
+}
+
+function showPopUp(result) {
+    $('#message').text(result);
+    $('#popup_box').fadeIn("slow");
+}
+
+function hidePopUp() {
+    $('#popup_box').fadeOut("slow");
 }

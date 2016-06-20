@@ -9,8 +9,6 @@ function viewQueueGame(id,status){
 }
 
 function viewSetupGame(id,status,enemyName){
-
-
     $('<div class="gameborder"><span class="textlabel" style="margin-left: 5px">ID: </span><span id="id">' + id + '</span>' +
         '<span class="textlabel">STATUS: </span><span id="status">' + status +'</span>' +
         '<span id="enemy"><span class="textlabel">TEGENSTANDER: </span><span>' + enemyName + '</span></span> ' +
@@ -29,6 +27,15 @@ function viewStartedGame(id,status,enemyName) {
         '</div>')
         .appendTo('#mainUI');
 
+}
+
+function  viewWaitingGame(id,enemyName) {
+    $('<div class="gameborder"><span class="textlabel" style="margin-left: 5px">ID: </span><span id="id">' + id + '</span>' +
+        '<span class="textlabel">STATUS: </span><span id="status">' + status +'</span>' +
+        '<span id="enemy"><span class="textlabel">TEGENSTANDER: </span><span>' + enemyName + '</span></span> ' +
+        '<button id="playgame" style="float: right " class="btn btn-primary rightbtn" onclick="' + "homecontroller.gotoMatchUI(" + id + ")" + '" disabled>Wacht op beurt</button>' +
+        '</div>')
+        .appendTo('#mainUI');
 }
 
 function removeGameListView(){
@@ -64,6 +71,3 @@ function removeHomeButtonsView(){
     $('#HomeButtonsDelete').remove();
 }
 
-function showOverlay() {
-    $('#overlay').addClass("overlay-content");
-}
