@@ -96,7 +96,7 @@ function HomeController(){
         removeHomeButtonsView();
 
         buildcontroller.loadBuildUI(id);
-    }
+    };
 
     this.gotoMatchUI = function(id){
         console.log(id);
@@ -104,11 +104,11 @@ function HomeController(){
         removeHomeButtonsView();
 
         matchcontroller.loadMatchUI(id);
-    }
+    };
 
     this.showOverlay = function(){
         showOverlay();
-    }
+    };
 
 }
 

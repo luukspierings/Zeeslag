@@ -20,7 +20,7 @@ function BuildController(){
 
     this.loadBuildUI = function(id){
         this.gameID = id;
-        this.board = new Board();
+        this.board = new Board(true);
 
         viewBuildButtons();
         viewCanvas();
@@ -147,34 +147,55 @@ function BuildController(){
 
 }
 
-function Board(){
+function Board(isBuilding){
+    var me = this;
+
     this.boardW = 640;
     this.boardH = 640;
     this.rectPad = 5;
     this.amountOfRect = 10;
     this.ships = [];
-
     this.squares = new Array(this.amountOfRect);
+
     for(var x1 = 0; x1 < this.amountOfRect; x1++){
         this.squares[x1] = new Array(this.amountOfRect);
     }
 
     for(var x = 0; x < this.amountOfRect; x++){
         for(var y = 0; y < this.amountOfRect; y++){
-            this.squares[x][y] = new Square(x,y);
+            this.squares[x][y] = new Square(x,y,"");
         }
     }
 
+    console.log(isBuilding);
+    if(!isBuilding){
+        getMatch(matchcontroller.gameID, function (data) {
+            var shots = data.enemyGameboard.shots;
+
+            for(var i = 0; i < shots.length; i++){
+                var x = shots[i].x.charCodeAt(0) - 97;
+                var y = shots[i].y-1;
+                var shott = "mis";
+
+                if(Object.keys(shots[i]).length == 4) {
+                    shott = "hit";
+                }
+
+                me.squares[x][y] = new Square(x,y,shott);
+            }
+
+            drawMatchBoard(me);
+        });
+    }
 
 
 }
 
-function Square(x,y){
+
+function Square(x,y, shot){
     this.x = x;
     this.y = y;
-
-
-
+    this.shot = shot
 }
 
 function Ship(id, length, isVertical, name, cellX){

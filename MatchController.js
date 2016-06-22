@@ -6,7 +6,12 @@ function MatchController(){
 
     this.loadMatchUI = function(id){
         this.gameID = id;
-        this.board = new MatchBoard(id);
+        this.board = new Board(false);
+        console.log(this.board);
+
+        viewMatchButtons();
+        viewMatchCanvas();
+
     };
 
 
@@ -66,53 +71,5 @@ function MatchController(){
 }
 
 
-
-function MatchBoard(id){
-    var me = this;
-
-    this.boardW = 640;
-    this.boardH = 640;
-    this.rectPad = 5;
-    this.amountOfRect = 10;
-    this.squares = new Array(this.amountOfRect);
-    this.id = id;
-
-
-    for(var x1 = 0; x1 < this.amountOfRect; x1++){
-        this.squares[x1] = new Array(this.amountOfRect);
-    }
-
-    for(var x = 0; x < this.amountOfRect; x++){
-        for(var y = 0; y < this.amountOfRect; y++){
-            this.squares[x][y] = new Square(x,y,"none");
-        }
-    }
-
-    getMatch(this.id, function (data) {
-        var shots = data.enemyGameboard.shots;
-
-        for(var i = 0; i < shots.length; i++){
-            var x = shots[i].x.charCodeAt(0) - 97;
-            var y = shots[i].y-1;
-            var shott = "mis";
-
-            if(Object.keys(shots[i]).length == 4) {
-                shott = "hit";
-            }
-
-            me.squares[x][y] = new Square(x,y,shott);
-        }
-
-        viewMatchCanvas();
-        viewMatchButtons();
-        drawMatchBoard(me);
-    });
-}
-
-function Square(x,y, shot){
-    this.x = x;
-    this.y = y;
-    this.shot = shot
-}
 
 var matchcontroller = new MatchController();
