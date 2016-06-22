@@ -39,8 +39,17 @@ function drawMatchBoard(board) {
 
     for (var x = 0; x < amountOfRect; x++) {
         for (var y = 0; y < amountOfRect; y++) {
+
+            rectX = rectPad + (rectPad + rectWidth) * x;
+            rectY = rectPad + (rectPad + rectHeight) * y;
+
+            context.strokeStyle = "rgb(100,100,100)";
+            context.strokeRect(rectX + (cornerRadius2 / 2), rectY + (cornerRadius2 / 2), rectWidth - cornerRadius2, rectHeight - cornerRadius2);
+
             context.fillStyle = "rgb(6,56,82)";
             context.strokeStyle = "rgb(6,56,82)";
+
+
 
             if(board.squares[x][y].shot == "hit"){
                 context.fillStyle = "rgb(255,0,0)";
@@ -50,10 +59,7 @@ function drawMatchBoard(board) {
                 context.strokeStyle = "rgb(0,0,255)";
             }
 
-            rectX = rectPad + (rectPad + rectWidth) * x;
-            rectY = rectPad + (rectPad + rectHeight) * y;
 
-            context.strokeRect(rectX + (cornerRadius2 / 2), rectY + (cornerRadius2 / 2), rectWidth - cornerRadius2, rectHeight - cornerRadius2);
             context.strokeRect(rectX + (cornerRadius / 2), rectY + (cornerRadius / 2), rectWidth - cornerRadius, rectHeight - cornerRadius);
             context.fillRect(rectX + (cornerRadius / 2), rectY + (cornerRadius / 2), rectWidth - cornerRadius, rectHeight - cornerRadius);
         }
@@ -65,7 +71,7 @@ function drawMatchBoard(board) {
 }
 
 function viewMatchButtons(){
-    $('<div id="BackBtnBuild" class="listwithstuff">'+
+    $('<div id="BackBtnBuild">'+
         '<button type="button" class="fullwidthbtn btn btn-primary" onclick="matchcontroller.gotoHomeUI()">' +
         '<span class="glyphicon glyphicon-chevron-left"></span> Terug naar Home'+
         '</button>'+
