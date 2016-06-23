@@ -6,18 +6,18 @@ function Game(id, status, enemyName){
 
     this.viewGame = function() {
 
-        getMatch(this.id, function (data) {
+        apicontroller.getMatch(this.id, function (data) {
             if (status == "queue") {
-                viewQueueGame(id, status);
+                homeview.viewQueueGame(id, status);
             }
             else if (status == "setup") {
-                viewSetupGame(id, status, enemyName);
+                homeview.viewSetupGame(id, status, enemyName);
             }
             else if (status == "started") {
                 if (data.yourTurn == true) {
-                    viewStartedGame(id, status, enemyName);
+                    homeview.viewStartedGame(id, status, enemyName);
                 } else {
-                    viewWaitingGame(id, status, enemyName);
+                    homeview.viewWaitingGame(id, status, enemyName);
                 }
             }
         });
@@ -30,7 +30,7 @@ function HomeController(){
     self.games = [];
 
     this.loadGames = function(callback){
-        var data = getGames();
+        var data = apicontroller.getGames();
 
         data.success(function (data) {
             self.games = [];
@@ -42,11 +42,11 @@ function HomeController(){
     };
 
     this.viewGames = function(){
-        removeGameListView();
-        viewLoadImage();
+        homeview.removeGameListView();
+        homeview.viewLoadImage();
 
         this.loadGames(function(){
-            removeLoadImage();
+            homeview.removeLoadImage();
             var x=0;
             while (x < self.games.length){
                 self.games[x].viewGame();
@@ -56,13 +56,12 @@ function HomeController(){
     };
 
     this.setup = function(){
-        viewHomeButtons();
+        homeview.viewHomeButtons();
         this.viewGames();
-        //console.log(this.games[0]);
     };
 
     this.newPlayerGame = function(){
-        var data = getNewPlayerGame();
+        var data = apicontroller.getNewPlayerGame();
         data.success(function (data) {
 
             self.viewGames();
@@ -72,7 +71,7 @@ function HomeController(){
 
     this.newAIGame = function(){
 
-        var data = getNewAIGame();
+        var data = apicontroller.getNewAIGame();
         data.success(function (data) {
 
             self.viewGames();
@@ -81,7 +80,7 @@ function HomeController(){
     };
 
     this.removeAllGames = function(){
-        var data = deleteAllGames();
+        var data = apicontroller.deleteAllGames();
         data.success(function (data) {
 
             self.viewGames();
@@ -92,22 +91,22 @@ function HomeController(){
 
     this.gotoBuildUI = function(id){
         console.log(id);
-        removeGameListView();
-        removeHomeButtonsView();
+        homeview.removeGameListView();
+        homeview.removeHomeButtonsView();
 
         buildcontroller.loadBuildUI(id);
     };
 
     this.gotoMatchUI = function(id){
         console.log(id);
-        removeGameListView();
-        removeHomeButtonsView();
+        homeview.removeGameListView();
+        homeview.removeHomeButtonsView();
 
         matchcontroller.loadMatchUI(id);
     };
 
     this.showOverlay = function(){
-        showOverlay();
+        apicontroller.showOverlay();
     };
 
 }

@@ -7,7 +7,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
-    <script src="Controller.js"></script>
+    <script src="APIController.js"></script>
     <script src="HomeController.js"></script>
     <script src="HomeView.js"></script>
     <script src="BuildController.js"></script>
@@ -29,7 +29,7 @@
     <div id="HomeButtonsCreate" class="col-md-3 ">
 
     </div>
-    <div id="mainUI" class="col-md-6 listwithstuff">
+    <div id="mainUI" class="col-md-7 listwithstuff">
 
     </div>
 </div>
@@ -54,9 +54,16 @@
 </div>
 
 <!-- Overlay -->
-<div id="popup_box">
-    <h1 id="message"></h1>
-    <button type="button" class="btn btn-link" onclick="matchcontroller.goHome();">Go to the homescreen</button>
+<div id="popup_box" class="col-md-12">
+    <p class="title">Zeeslag</p>
+    <div class=" col-md-3 listwithstuff">
+        <button type="button" class="fullwidthbtn btn btn-primary" onclick="matchcontroller.goHome();">
+            <span class="glyphicon glyphicon-chevron-left"></span> Terug naar Home</button>
+    </div>
+    <h1 id="message" class="col-md-8"></h1>
+
+
+    <!--<button type="button" class="btn btn-link" onclick="matchcontroller.goHome();">Go to the homescreen</button>-->
 
 </div>
 

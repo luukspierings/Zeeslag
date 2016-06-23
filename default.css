@@ -60,19 +60,21 @@ body {
     _position:absolute; /* hack for internet explorer 6 */
     height:100%;
     width:100%;
-    background:#FFFFFF;
+    background:#2A3132;
     left: 0;
     top: 0;
     z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
 
-    padding:15px;
+    /*padding:15px;*/
     font-size:15px;
 
 }
 
 #message{
-    font-size: 144px;
+    font-size: 244px;
+    color: white;
     font-family: "Comic Sans MS";
+    margin: 5px;
 }
 
 #popupBoxClose {

@@ -9,16 +9,16 @@ function MatchController(){
         this.board = new Board(false);
         console.log(this.board);
 
-        viewMatchButtons();
-        viewMatchCanvas();
+        matchview.viewMatchButtons();
+        matchview.viewMatchCanvas();
 
     };
 
 
     this.gotoHomeUI = function(){
 
-        removeMatchCanvas();
-        removeMatchButtonsView();
+        matchview.removeMatchCanvas();
+        matchview.removeMatchButtonsView();
 
         homecontroller.setup();
 
@@ -52,21 +52,21 @@ function MatchController(){
 
         console.log(chrX + " - " + mouseCellY);
 
-        takeShot(self.gameID, {
+        apicontroller.takeShot(self.gameID, {
             "x": chrX,
             "y": mouseCellY+1
         }, function(result) {
 
             console.log(result);
 
-            showPopUp(result);
+            matchview.showPopUp(result);
             self.gotoHomeUI();
         });
 
     };
 
     this.goHome = function () {
-        hidePopUp();
+        matchview.hidePopUp();
     };
 }
 
